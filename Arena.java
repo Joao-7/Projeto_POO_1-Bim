@@ -7,11 +7,13 @@ public class Arena {
     public static int qtnPersonagens = 0;
 
     Scanner ler = new Scanner(System.in);
+    // Lista que armazena todos os personagens criados
     ArrayList<Personagem> personagens = new ArrayList<>();
 
     public void Iniciar() {
         int opcao;
         do {
+            // Exibe o menu
             System.out.println("");
             System.out.println("---- MENU ----");
             System.out.println("1 - Cadastrar personagem");
@@ -54,7 +56,6 @@ public class Arena {
         System.out.print("Digite o tipo ex:(Guerreiro, Mago, Arqueiro): ");
         String tipo = ler.nextLine();
 
-        //
         System.out.println("");
         System.out.println("Escolha uma arma. Digite o número correspondente a arma:");
         System.out.println("1 - Espada (+50 de ataque)");
@@ -78,7 +79,6 @@ public class Arena {
                 System.out.println("Opção inválida. Ataque padrão de 20 aplicado.");
                 ataque = 20;
         }
-        //
 
         System.out.println("");
         System.out.println("Escolha uma defesa. Digite o número correspondente à defesa:");
@@ -105,6 +105,7 @@ public class Arena {
                 defesa = 5;
         }
 
+        // Adiciona personagem à lista
         personagens.add(new Personagem(nome, tipo, ataque, defesa));
         qtnPersonagens++;
         System.out.println("Personagem cadastrado!");
@@ -140,10 +141,11 @@ public class Arena {
         int i2 = ler.nextInt() - 1;
         ler.nextLine();
 
+        // Verifica se os índices são válidos e diferentes
         if (i1 == i2 || i1 < 0 || i2 < 0 || i1 >= personagens.size() || i2 >= personagens.size()) {
             System.out.println("Seleção inválida. Personagens devem ser diferentes e válidos.");
             return;
-        } // sobre a leitura: Considere essa parte como variável e não como índece
+        } 
 
         Personagem p1 = personagens.get(i1);
         Personagem p2 = personagens.get(i2);
@@ -153,6 +155,7 @@ public class Arena {
         System.out.println("Jogador 1: " + p1);
         System.out.println("Jogador 2: " + p2);
 
+        // Enquanto os personagens estiverem vivos
         while (p1.Estado() && p2.Estado()) {
             System.out.println("");
             System.out.println("--- Nova Rodada ---");

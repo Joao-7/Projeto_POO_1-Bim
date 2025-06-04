@@ -1,11 +1,18 @@
+// Classe que representa um personagem em um jogo de batalha simples.
+// Guarda informações de nome, tipo (classe ou categoria), pontos de vida
+// e atributos de combate (ataque e defesa).
 public class Personagem {
+    // Atributos
+    // Nome do personagem (ex.: "Artemis")
     String nome;
     String tipo;
     int vida;
     int ataque;
     int defesa;
 
-    // Construtor
+    // Construtor 
+    // Cria um personagem com nome, tipo e atributos de combate informados.
+    // A vida inicial é fixada em 100 pontos por padrão.
     public Personagem(String nome, String tipo, int ataque, int defesa) {
         this.nome = nome;
         this.tipo = tipo;
@@ -14,12 +21,12 @@ public class Personagem {
         this.defesa = defesa;
     }
 
-    // Método para verificar se o personagem está vivo
+    // Método que verifica se o personagem ainda está vivo. 
     public boolean Estado() {
-        return vida > 0;
+        return vida > 0; // true se vida > 0, false caso contrário.
     }
 
-    // Sobrescrevendo o toString para mostrar as informações do personagem
+    // Representação legível do objeto. Inclui todos os atributos principais e o status (vivo/morto).
     @Override
     public String toString() {
         return nome + " (" + tipo + ") | Vida: " + vida
