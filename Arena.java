@@ -105,7 +105,7 @@ public class Arena {
                 defesa = 5;
         }
 
-        // Adiciona personagem à lista
+        // Cria e adiciona o novo personagem à lista de array
         personagens.add(new Personagem(nome, tipo, ataque, defesa));
         qtnPersonagens++;
         System.out.println("Personagem cadastrado!");
