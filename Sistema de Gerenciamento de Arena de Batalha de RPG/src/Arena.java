@@ -181,28 +181,35 @@ public class Arena {
         while (p1.Estado() && p2.Estado()) {
             System.out.println("");
             System.out.println("--- Nova Rodada ---");
+            System.out.print("Joguem a moeda! Digite 1 se " + p1.nome + " venceu, ou 2 se " + p2.nome + " venceu: ");
+            int vcc = ler.nextInt();
+            ler.nextLine();
 
-            
-            // Sorteia 1 ou 2
-            int pa = (int) (Math.random() * 2) + 1; 
-            if (pa == 1) {
-                System.out.println(p1.nome + " atacará!");
-                int dano = p1.ataque - p2.defesa;
-                if (dano < 0)
-                    dano = 0;
-                p2.vida -= dano;
-                if (p2.vida < 0)
-                    p2.vida = 0;
-                System.out.println(p1.nome + " causou " + dano + " de dano em " + p2.nome);
-            } else {
-                System.out.println(p2.nome + " atacará!");
-                int dano = p2.ataque - p1.defesa;
-                if (dano < 0)
-                    dano = 0;
-                p1.vida -= dano;
-                if (p1.vida < 0)
-                    p1.vida = 0;
-                System.out.println(p2.nome + " causou " + dano + " de dano em " + p1.nome);
+            switch (vcc) {
+                case 1:
+                    System.out.println(p1.nome + " atacará!");
+                    int dano1 = p1.ataque - p2.defesa;
+                    if (dano1 < 0)
+                        dano1 = 0;
+                    p2.vida -= dano1;
+                    if (p2.vida < 0)
+                        p2.vida = 0;
+                    System.out.println(p1.nome + " causou " + dano1 + " de dano em " + p2.nome);
+                    break;
+
+                case 2:
+                    System.out.println(p2.nome + " atacará!");
+                    int dano2 = p2.ataque - p1.defesa;
+                    if (dano2 < 0)
+                        dano2 = 0;
+                    p1.vida -= dano2;
+                    if (p1.vida < 0)
+                        p1.vida = 0;
+                    System.out.println(p2.nome + " causou " + dano2 + " de dano em " + p1.nome);
+                    break;
+
+                default:
+                    System.out.println("Opção inválida.");
             }
 
             System.out.println("");
